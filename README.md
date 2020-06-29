@@ -1,8 +1,25 @@
 
-# Welcome to your CDK Python project!
+# AWS Getting Started Workshop Demo
 
-You should explore the contents of this project. It demonstrates a CDK app with an instance of a stack (`awsgswdemo_stack`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
+This sample app deploys a wordpress site running on Amazon EC2 and backed by MariaDB on Amazon RDS. This app uses AWS Cloud Development Kit (AWS CDK) to deploy the sample app.
+
+When you run ```cdk deploy``` it deploys the following:
+
+- VPC with 3 subnets (Public, Private and DB)
+- Wordpress on an EC2 instance in the Public subnet
+- MariaDB database on Amazon RDS
+
+The EC2 instance is created in the public subnet intentionally so that the user can use it to demo the implementation of Auto Scaling Group and Elastic Load Balancer for high-availability setup.
+
+NOTE: There are still hard-coded parameters (until I can clean it up) that you need to be aware, see below:
+
+- Region in ```app.py```
+- CIDR in ```awsgswdemo/awsgswdemo_stack.py```
+- Key pair name in ```awsgswdemo/awsgswdemo_stack.py```
+- Password in ```awsgswdemo/awsgswdemo_stack.py```
+
+---
+
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
